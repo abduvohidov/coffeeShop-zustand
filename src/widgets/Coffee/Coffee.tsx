@@ -87,7 +87,7 @@ export const Coffee: FC<CoffeeProps> = (props: CoffeeProps) => {
                 </Container>
             </Col>
             <Col xl={3}>
-                <Container maxWidth={"xxl"}>
+                <Container maxWidth={"xl"}>
                     <aside>
                         <Flex centerContent={true}>
                             <Text style={TitleText} variant="display-3" color="warning-heavy">Заказ</Text>
