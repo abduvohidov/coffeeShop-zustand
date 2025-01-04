@@ -10,6 +10,7 @@ export type CoffeeState = {
     controller?: AbortController
     cart?: OrderItem[];
     address?: string;
+    params: GetCoffeeListReqParams;
 }
 
 export type CoffeeActions = {
@@ -18,6 +19,7 @@ export type CoffeeActions = {
     addToCart: (item: CoffeeType) => void;
     clearCart: () => void;
     setAddress: (address: string) => void;
+    setParams: (params: GetCoffeeListReqParams) => void;
 }
 
 export type GetCoffeeListReqParams = {
@@ -47,6 +49,7 @@ const CoffeeSlice: StateCreator<CoffeeState & CoffeeActions, [["zustand/devtools
     coffeeList: undefined,
     cart: undefined,
     address: undefined,
+    params: {text: undefined},
     getCoffeeList:  async (params) => {
         const {controller} = get();
         if(controller) {
@@ -93,6 +96,11 @@ const CoffeeSlice: StateCreator<CoffeeState & CoffeeActions, [["zustand/devtools
             throw error
         }
     },
+    setParams: (newParams) => {
+        const {getCoffeeList, params} = get();
+        set({params: {...params, ...newParams}}, false, "setParams");
+        getCoffeeList(params);
+    }
 
 })
 

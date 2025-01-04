@@ -3,7 +3,7 @@ import {Button, Card, Col, Container, Flex, Icon, Row, Text, TextInput} from "@g
 import {ShoppingCart} from "@gravity-ui/icons";
 import {CoffeeType} from "../../entities/Coffee/model/model";
 import {OrderItem, useCoffeeStore} from "../../entities/Coffee/model/store";
-import {useSearchStore} from "../../entities/Search";
+import {useUrlStorage} from "../../shared/hooks";
 
 interface CoffeeProps {
     className?: string;
@@ -13,14 +13,14 @@ export const Coffee: FC<CoffeeProps> = ({className}: CoffeeProps) => {
     const coffeeList = useCoffeeStore(state => state.coffeeList);
     const cart = useCoffeeStore(state => state.cart);
     const address = useCoffeeStore(state => state.address);
-    const text = useSearchStore(state => state.text);
+    const params = useCoffeeStore(state => state.params);
 
     const useCoffeeList = useCoffeeStore(state => state.getCoffeeList);
     const useAddToCart = useCoffeeStore(state => state.addToCart);
     const useClearCart = useCoffeeStore(state => state.clearCart);
     const useOrderCoffee = useCoffeeStore(state => state.orderCoffee);
     const useSetAddress = useCoffeeStore(state => state.setAddress);
-    const useSetSearch = useSearchStore(state => state.setText);
+    const useSetParams = useCoffeeStore(state => state.setParams);
 
     const renderCoffeeList = () => {
         if (!coffeeList || coffeeList.length === 0) {
@@ -60,8 +60,10 @@ export const Coffee: FC<CoffeeProps> = ({className}: CoffeeProps) => {
     }
 
     useEffect(() => {
-        useCoffeeList({text});
+        useCoffeeList(params);
     }, []);
+
+    useUrlStorage(params, useSetParams);
 
     return (
         <Row space={10} className={className}>
@@ -74,8 +76,10 @@ export const Coffee: FC<CoffeeProps> = ({className}: CoffeeProps) => {
                         <TextInput
                             size="xl"
                             placeholder="Поиск..."
-                            value={text}
-                            onChange={(e) => useSetSearch(e.target.value)}
+                            value={params.text}
+                            onChange={(e) => {
+                                useSetParams({text: e.target.value})
+                            }}
                         />
                     </Flex>
 
