@@ -1,7 +1,7 @@
 import {FC, useEffect} from "react";
 import {Button, Card, Col, Container, Flex, Icon, Row, Text, TextInput} from "@gravity-ui/uikit";
-import {CoffeeType} from "../../entities/Coffee/model/model";
 import {ShoppingCart} from "@gravity-ui/icons";
+import {CoffeeType} from "../../entities/Coffee/model/model";
 import {OrderItem, useCoffeeStore} from "../../entities/Coffee/model/store";
 import {useSearchStore} from "../../entities/Search";
 
@@ -60,7 +60,7 @@ export const Coffee: FC<CoffeeProps> = ({className}: CoffeeProps) => {
     }
 
     useEffect(() => {
-        useCoffeeList();
+        useCoffeeList({text});
     }, []);
 
     return (
@@ -83,7 +83,7 @@ export const Coffee: FC<CoffeeProps> = ({className}: CoffeeProps) => {
                 </Container>
             </Col>
             <Col xl={3}>
-                <Container maxWidth={"xl"}>
+                <Container maxWidth={"xxl"}>
                     <aside>
                         <Flex centerContent={true}>
                             <Text style={TitleText} variant="display-3" color="warning-heavy">Заказ</Text>
@@ -104,7 +104,7 @@ export const Coffee: FC<CoffeeProps> = ({className}: CoffeeProps) => {
 }
 
 // styles
-const CardStyle = {padding: "25px"};
+const CardStyle = {padding: "20px"};
 const TextStyle = {paddingTop: "5px", display: "block"};
 const InputContainer = {margin: "20px 0 20px 0"}
 const TitleText = {marginTop: "100px"}

@@ -1,6 +1,7 @@
 import { StateCreator, create } from "zustand";
-import {devtools, persist} from "zustand/middleware";
+import {createJSONStorage, devtools, persist} from "zustand/middleware";
 import {getCoffeeList} from "../../Coffee/model/store.ts";
+import {hashStorage} from "../../../shared/configs/hashStorage";
 
 type SearchState = {
     text?: string;
@@ -20,7 +21,7 @@ const searchSlice: SearchStoreCreator = (set) => ({
 
 export const useSearchStore = create<SearchStore>()(
     devtools(
-        persist(searchSlice, {name: "search-store"}),
+        persist(searchSlice, {name: "search-store", storage: createJSONStorage(() => hashStorage)}),
         {name: "search-store"}
     )
 );
