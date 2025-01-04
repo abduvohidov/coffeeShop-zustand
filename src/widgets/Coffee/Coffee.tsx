@@ -19,7 +19,7 @@ export const Coffee: FC<CoffeeProps> = (props: CoffeeProps) => {
     const useOrderCoffee = useCoffeeStore(state => state.orderCoffee);
     const useSetAddress = useCoffeeStore(state => state.setAddress);
 
-    const [text, setText] = useState('');
+    const [text, setText] = useState("");
 
     const handleSearch = (text: string) => {
         useCoffeeList({text});
@@ -62,7 +62,6 @@ export const Coffee: FC<CoffeeProps> = (props: CoffeeProps) => {
         ))
 
     }
-
 
     useEffect(() => {
         useCoffeeList();
@@ -108,6 +107,7 @@ export const Coffee: FC<CoffeeProps> = (props: CoffeeProps) => {
       )
 }
 
+// styles
 const CardStyle = {padding: "25px"};
 const TextStyle = {paddingTop: "5px", display: "block"};
 const InputContainer = {margin: "20px 0 20px 0"}
