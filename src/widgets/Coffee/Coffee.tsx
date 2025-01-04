@@ -1,30 +1,26 @@
-import {FC, useEffect, useState} from "react";
+import {FC, useEffect} from "react";
 import {Button, Card, Col, Container, Flex, Icon, Row, Text, TextInput} from "@gravity-ui/uikit";
-import {CoffeeType, OrderItem} from "../../entities/Coffee/model/model";
+import {CoffeeType} from "../../entities/Coffee/model/model";
 import {ShoppingCart} from "@gravity-ui/icons";
-import {useCoffeeStore} from "../../entities/Coffee/model/store";
+import {OrderItem, useCoffeeStore} from "../../entities/Coffee/model/store";
+import {useSearchStore} from "../../entities/Search";
 
 interface CoffeeProps {
     className?: string;
 }
 
-export const Coffee: FC<CoffeeProps> = (props: CoffeeProps) => {
-    const {className} = props;
+export const Coffee: FC<CoffeeProps> = ({className}: CoffeeProps) => {
     const coffeeList = useCoffeeStore(state => state.coffeeList);
     const cart = useCoffeeStore(state => state.cart);
     const address = useCoffeeStore(state => state.address);
+    const text = useSearchStore(state => state.text);
+
     const useCoffeeList = useCoffeeStore(state => state.getCoffeeList);
     const useAddToCart = useCoffeeStore(state => state.addToCart);
     const useClearCart = useCoffeeStore(state => state.clearCart);
     const useOrderCoffee = useCoffeeStore(state => state.orderCoffee);
     const useSetAddress = useCoffeeStore(state => state.setAddress);
-
-    const [text, setText] = useState("");
-
-    const handleSearch = (text: string) => {
-        useCoffeeList({text});
-        setText(text)
-    }
+    const useSetSearch = useSearchStore(state => state.setText);
 
     const renderCoffeeList = () => {
         if (!coffeeList || coffeeList.length === 0) {
@@ -79,7 +75,7 @@ export const Coffee: FC<CoffeeProps> = (props: CoffeeProps) => {
                             size="xl"
                             placeholder="Поиск..."
                             value={text}
-                            onChange={(e) => handleSearch(e.target.value)}
+                            onChange={(e) => useSetSearch(e.target.value)}
                         />
                     </Flex>
 

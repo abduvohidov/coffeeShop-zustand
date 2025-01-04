@@ -96,10 +96,7 @@ const CoffeeSlice: StateCreator<CoffeeState & CoffeeActions, [["zustand/devtools
 
 })
 
-const partializeState = (state: CoffeeState) => {
-    const {coffeeList, cart, address} = state;
-    return {coffeeList, cart, address};
-}
+const partializeState = ({ coffeeList, cart, address }: CoffeeState) => ({ coffeeList, cart, address });
 
 export const useCoffeeStore = create<CoffeeState & CoffeeActions>()(
     devtools(
@@ -107,3 +104,6 @@ export const useCoffeeStore = create<CoffeeState & CoffeeActions>()(
         {name: "coffee-store"}
     )
 );
+
+export const getCoffeeList = (params?: GetCoffeeListReqParams) =>
+    useCoffeeStore.getState().getCoffeeList(params);
