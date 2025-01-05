@@ -1,12 +1,12 @@
 import {create, StateCreator} from "zustand";
 import {devtools, persist} from "zustand/middleware";
-import {CoffeeType} from "./model";
+import {CoffeeModel} from "./model";
 import axios from "axios";
 
 const BASE_URL = "https://purpleschool.ru/coffee-api";
 
 export type CoffeeState = {
-    coffeeList?: CoffeeType[];
+    coffeeList?: CoffeeModel[];
     controller?: AbortController
     cart?: OrderItem[];
     address?: string;
@@ -16,7 +16,7 @@ export type CoffeeState = {
 export type CoffeeActions = {
     getCoffeeList: (params?: GetCoffeeListReqParams) => void;
     orderCoffee: () => void;
-    addToCart: (item: CoffeeType) => void;
+    addToCart: (item: CoffeeModel) => void;
     clearCart: () => void;
     setAddress: (address: string) => void;
     setParams: (params: GetCoffeeListReqParams) => void;

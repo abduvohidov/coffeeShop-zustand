@@ -1,4 +1,4 @@
-export type CoffeeType = {
+export type CoffeeModel = {
     id: number,
     name: string,
     subTitle: string,

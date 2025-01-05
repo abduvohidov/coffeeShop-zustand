@@ -1,0 +1,8 @@
+.coffee-card {
+    padding: 18px;
+}
+
+.coffee-card-text {
+    margin-top: 10px;
+    display: block;
+}
