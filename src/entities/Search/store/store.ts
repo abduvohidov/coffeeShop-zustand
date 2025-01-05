@@ -1,6 +1,6 @@
 import { StateCreator, create } from "zustand";
 import {createJSONStorage, devtools, persist} from "zustand/middleware";
-import {getCoffeeList} from "../../Coffee/model/store.ts";
+import {getCoffeeList} from "../../Coffee";
 import {hashStorage} from "../../../shared/configs/hashStorage";
 
 type SearchState = {

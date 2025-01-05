@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {Card, Text} from "@gravity-ui/uikit";
-import {CoffeeModel} from "../../../entities/Coffee/model/model.ts";
+import {CoffeeModel} from "../../../entities/Coffee";
 import {AddToCart} from "../../../features/AddToCart";
 import "./CoffeeCard.css";
 

@@ -1,7 +1,7 @@
 import {FC} from "react";
 import {Card, Text} from "@gravity-ui/uikit";
-import {OrderItem} from "../../../entities/Coffee/model/store.ts";
 import "./OrderCard.css";
+import {OrderItem} from "../../../entities/types.ts";
 
 type OrderCardProps = {
     order: OrderItem;

@@ -1,11 +1,12 @@
 import {FC} from "react";
 import {Col, Container, Flex, Row, Text} from "@gravity-ui/uikit";
-import {OrderItem, useCoffeeStore} from "../../../entities/Coffee/model/store.ts";
+import {useCoffeeStore} from "../../../entities/Coffee";
 import {OrderCard} from "../../OrderCard";
 import {ClearCartButton} from "../../../features/OrderCoffeeButton";
 import {OrderCoffeeButton} from "../../../features/OrderCoffeeButton/ui/OrderCoffeeButton.tsx";
 import {AddAddressInput} from "../../../features/AddAddressInput/ui/AddAddressInput.tsx";
 import "./CoffeeCart.css";
+import {OrderItem} from "../../../entities/types.ts";
 
 type CoffeeCartProps = {
     className?: string;

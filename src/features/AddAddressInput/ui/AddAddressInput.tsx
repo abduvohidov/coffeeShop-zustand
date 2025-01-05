@@ -1,5 +1,5 @@
 import {TextInput} from "@gravity-ui/uikit";
-import {useCoffeeStore} from "../../../entities/Coffee/model/store.ts";
+import {useCoffeeStore} from "../../../entities/Coffee";
 import {FC} from "react";
 
 type AddAddressInputProps = {

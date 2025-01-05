@@ -1,8 +1,8 @@
 import {useEffect} from "react";
 import {Col, Container, Flex, Row, Text} from "@gravity-ui/uikit";
-import {CoffeeModel} from "../../../entities/Coffee/model/model.ts";
+import {CoffeeModel} from "../../../entities/Coffee";
 import {CoffeeCard} from "../../CoffeeCard";
-import {useCoffeeStore} from "../../../entities/Coffee/model/store.ts";
+import {useCoffeeStore} from "../../../entities/Coffee";
 import {useUrlStorage} from "../../../shared/hooks";
 import {Searchbar} from "../../../features/Searchbar";
 import "./CoffeeCatalog.css";

@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {Button} from "@gravity-ui/uikit";
-import {useCoffeeStore} from "../../../entities/Coffee/model/store.ts";
+import {useCoffeeStore} from "../../../entities/Coffee";
 
 type OrderCoffeeButtonProps = {
     className?: string;

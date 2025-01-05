@@ -1,7 +1,7 @@
 import {Button, Icon} from "@gravity-ui/uikit";
 import {ShoppingCart} from "@gravity-ui/icons";
-import {useCoffeeStore} from "../../../entities/Coffee/model/store.ts";
-import {CoffeeModel} from "../../../entities/Coffee/model/model.ts";
+import {useCoffeeStore} from "../../../entities/Coffee";
+import {CoffeeModel} from "../../../entities/Coffee";
 import {FC} from "react";
 
 type AddToCartProps = {
