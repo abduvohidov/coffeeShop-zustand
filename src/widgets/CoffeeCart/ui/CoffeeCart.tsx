@@ -36,7 +36,7 @@ export const CoffeeCart: FC<CoffeeCartProps> = ({className}: CoffeeCartProps) =>
 
     return (
         <Container maxWidth={"xxl"} className={className}>
-            <aside className="cart-aside">
+            <aside>
                 <Flex centerContent={true} className="mt-100">
                     <Text variant="display-3" color="warning-heavy" children={"Заказ"}/>
                 </Flex>
