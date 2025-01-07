@@ -20,7 +20,7 @@ export const CoffeeCatalog = () => {
         }
 
         return coffeeList.map((coffee: CoffeeModel) => (
-            <Col xl={3} key={coffee.id} children={<CoffeeCard coffee={coffee}/>}/>
+            <Col xxxl={3} xxl={4} xl={4} l={6} m={6} s={12} key={coffee.id} children={<CoffeeCard coffee={coffee}/>}/>
         ))
     }
 

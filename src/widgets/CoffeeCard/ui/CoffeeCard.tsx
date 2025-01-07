@@ -10,7 +10,7 @@ type CoffeeCardProps = {
 
 export const CoffeeCard: FC<CoffeeCardProps> = ({coffee}: CoffeeCardProps) => (
     <Card className="coffee-card" theme="warning" view="filled">
-        <img src={coffee.image} alt={`Изображение кофе ${coffee.name}`}/>
+        <img src={coffee.image} alt={`Изображение кофе ${coffee.name}`} className="coffee-card-image"/>
         <Text className="coffee-card-text" variant="body-3">{coffee.name}</Text>
         <Text className="coffee-card-text" variant="body-2" color="secondary">{coffee.subTitle}</Text>
 
