@@ -18,7 +18,7 @@ export const CoffeeCart: FC<CoffeeCartProps> = ({className}: CoffeeCartProps) =>
     const renderCartList = () => {
         if (!cart || cart.length === 0) {
             return (
-                <Col xl={12}>
+                <Col s={12}>
                     <Text variant="body-2" children={"Список кофе пуст"} />
                 </Col>
             )
@@ -26,8 +26,8 @@ export const CoffeeCart: FC<CoffeeCartProps> = ({className}: CoffeeCartProps) =>
 
         return cart.map((order: OrderItem, index) => (
             <Col
-                xl={12}
                 key={index}
+                s={12}
                 className={className}
                 children={<OrderCard order={order}/>}
             />
@@ -36,7 +36,7 @@ export const CoffeeCart: FC<CoffeeCartProps> = ({className}: CoffeeCartProps) =>
 
     return (
         <Container maxWidth={"xxl"} className={className}>
-            <aside>
+            <aside className="cart-aside">
                 <Flex centerContent={true} className="mt-100">
                     <Text variant="display-3" color="warning-heavy" children={"Заказ"}/>
                 </Flex>
