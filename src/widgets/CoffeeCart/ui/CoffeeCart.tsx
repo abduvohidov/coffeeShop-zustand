@@ -7,19 +7,21 @@ import {OrderCoffeeButton} from "../../../features/OrderCoffeeButton/ui/OrderCof
 import {AddAddressInput} from "../../../features/AddAddressInput/ui/AddAddressInput.tsx";
 import "./CoffeeCart.css";
 import {OrderItem} from "../../../entities/types.ts";
+import {useTranslation} from "../../../shared/hooks/useTranslation.ts";
 
 type CoffeeCartProps = {
     className?: string;
 }
 
 export const CoffeeCart: FC<CoffeeCartProps> = ({className}: CoffeeCartProps) => {
+    const {t} = useTranslation();
     const cart = useCoffeeStore(state => state.cart);
 
     const renderCartList = () => {
         if (!cart || cart.length === 0) {
             return (
                 <Col s={12}>
-                    <Text variant="body-2" children={"Список кофе пуст"} />
+                    <Text variant="body-2" children={t("coffeeListEmpty")} />
                 </Col>
             )
         }
@@ -38,7 +40,7 @@ export const CoffeeCart: FC<CoffeeCartProps> = ({className}: CoffeeCartProps) =>
         <Container maxWidth={"xxl"} className={className}>
             <aside>
                 <Flex centerContent={true} className="mt-100">
-                    <Text variant="display-3" color="warning-heavy" children={"Заказ"}/>
+                    <Text variant="display-3" color="warning-heavy" children={t("order")}/>
                 </Flex>
                 <Row space={2} className="mt-100">
                     {renderCartList()}
