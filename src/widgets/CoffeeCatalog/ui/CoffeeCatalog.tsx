@@ -5,8 +5,10 @@ import {CoffeeCard} from "../../CoffeeCard";
 import {useCoffeeStore} from "../../../entities/Coffee";
 import {useUrlStorage} from "../../../shared/hooks";
 import {Searchbar} from "../../../features/Searchbar";
-import "./CoffeeCatalog.css";
 import {useTranslation} from "../../../shared/hooks/useTranslation.ts";
+import { motion } from "motion/react"
+
+import "./CoffeeCatalog.css";
 
 export const CoffeeCatalog = () => {
     const {t} = useTranslation();
@@ -22,8 +24,10 @@ export const CoffeeCatalog = () => {
         }
 
         return coffeeList.map((coffee: CoffeeModel) => (
-            <Col xxxl={3} xxl={4} xl={4} l={6} m={6} s={12} key={coffee.id} >
-                <CoffeeCard coffee={coffee}/>
+            <Col xxxl={3} xxl={4} xl={4} l={6} m={6} s={12} key={coffee.id}>
+                <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+                    <CoffeeCard coffee={coffee}/>
+                </motion.div>
             </Col>
         ))
     }
